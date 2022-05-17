@@ -8,25 +8,56 @@ namespace UnitTestDemo
         public string bollString { get; set; }
 
         // assigns values to properties
-        public Bollocks(int bollNum, string bollString){
-            throw new NotImplementedException("Bollocks.Constructor");
+        public Bollocks(int pBollNum, string pBollString){
+            this.bollNum = pBollNum;
+            bollString = pBollString;
         }
 
         // method that returns bollNum summed with the parameter value
         public int AddTo(int n){
-            throw new NotImplementedException("Bollocks.AddTo");
+            return bollNum + n;
         } 
  
         // method that DIVIDES bollNum BY 
         // the parameter value and returns the dividend
 
         public int DivBy(int n){
-            throw new NotImplementedException("Bollocks.DivBy");
+            try
+            {
+                if(n == 0)
+                {
+                    throw new DivideByZeroException();
+                }
+                else 
+                {
+                    return bollNum / n;
+                }
+            }
+            catch (System.Exception)
+            {
+                
+                throw new Exception("something went wrong");
+            }
         }
         // method that returns the modulud of dividing bollNum BY 
         // the parameter value
-        public int ModOfDivBy(int n){
-            throw new NotImplementedException("Bollocks.ModOfDivBy");
+        public int ModBy(int n){
+            try
+            {
+                if(n == 0)
+                {
+                    throw new DivideByZeroException();
+                }
+                else 
+                {
+                    return bollNum & n;
+                }
+            }
+            catch (System.Exception)
+            {
+                
+                throw new Exception("something went wrong");
+            }
         }
     }
 }
